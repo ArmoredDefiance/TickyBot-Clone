@@ -7,16 +7,14 @@ document.addEventListener('DOMContentLoaded', function () {
 //Smooth scrolling from navigation bar
 const navLinks = document.querySelectorAll('.navigation a');
 
-for (let i = 0; i < navLinks.length; i++) {
+//apply event listener to all but the last one
+for (let i = 0; i < 3; i++) {
   navLinks[i].addEventListener('click', navLinkClick);
 }
 
 function navLinkClick(event) {
-  smoothScroll(event);
-}
-
-function smoothScroll(event) {
-  window.scrollTo({
+  event.preventDefault();
+  document.querySelector(this.getAttribute('href')).scrollIntoView({
     behavior: 'smooth',
   });
 }
